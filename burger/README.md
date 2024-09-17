@@ -13,5 +13,5 @@
 ##### 2: Implementation och dokumentation av projektet
 ##### 3: Testing och visat förmåga att debugga
 
-###### Uppgift 1: Er första uppgift blir att bestämma vilken utvecklingsmiljö 
-###### ni vill använda och ställa i ordning ert konfigurationshanteringssystem.
+###### Uppgift 1: Er första uppgift blir att bestämma vilken utvecklingsmiljö - Vscode
+###### ställa i ordning ert konfigurationshanteringssystem - Github
