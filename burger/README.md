@@ -24,14 +24,52 @@
 
 ###### ställa i ordning ert konfigurationshanteringssystem - Github
 
-### formatering
-
-### https://www.markdownguide.org/
-
 =======
 
 ###### ställa i ordning ert konfigurationshanteringssystem - Github
 
 ###
+
+### ----------------------------------------
+
+### - Innehåll
+
+### - Projektnamn
+
+### - Beskrivning
+
+### - Vad handlar projektet om
+
+### - Skärmdump eller annan illustration
+
+### - Vilket problem löser det
+
+### - Vilka teknologier har du använt
+
+### - Särskillda utmaningar du har eller hoppas ta hand om?
+
+### - Innehållsförteckning (om lång README)
+
+### - Instruktioner (kanske separata sidor)
+
+### - Instruktioner för att installera och köra projektet
+
+### - Instruktioner för att använda projektet
+
+### - Instroktioner för hur man kan anpassa projektet
+
+### - Instruktioner för hur man testar projektet
+
+### - Credits, information om utvecklingsteamet, andra källor, mm
+
+### Instruktioner för hur läsaren kan bidra
+
+### Licens
+
+### - Formatering
+
+#### - https://www.markdownguide.org/
+
+### ----------------------------------------
 
 > > > > > > > 73b00383f1148093fbaeccb5fa9f5f5b69d4dbd5
