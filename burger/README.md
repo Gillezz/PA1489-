@@ -20,8 +20,18 @@
 
 ###### Uppgift 1: Er första uppgift blir att bestämma vilken utvecklingsmiljö - Vscode
 
+<<<<<<< HEAD
+
 ###### ställa i ordning ert konfigurationshanteringssystem - Github
 
 ### formatering
 
 ### https://www.markdownguide.org/
+
+=======
+
+###### ställa i ordning ert konfigurationshanteringssystem - Github
+
+###
+
+> > > > > > > 73b00383f1148093fbaeccb5fa9f5f5b69d4dbd5
