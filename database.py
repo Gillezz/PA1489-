@@ -80,14 +80,30 @@ def display_table():
     # so key = index, value = object or just skip that and push everything directly to the web
 
 
-def create_order():
+def create_order(username, password, email = ""):
     """
     Add order 
     """
+    database_connection = connect()
+    cursor = database_connection.cursor()
+    try:
+        query = "INSERT INTO user (username, password, email) VALUES (%s, %s, %s)"
+        values = (username, password, email)
+        cursor.execute(query, values)
+        database_connection.commit() 
 
+    except mysql.connector.Error:
+        print(f"{FAIL}Query is not correct{ENDC}")
+        raise SystemExit
+    finally:
+        if cursor:
+            cursor.close()
+            print(f"{OK}Cursor closed{ENDC}")
+        close_connection(database_connection)
+    
     # push it to order table
 
-def remove_order():
+def remove_order(id):
     """
     Remove order
     """
@@ -95,7 +111,21 @@ def remove_order():
     # pros on index always unique
     # negative order number we can get the same number twice
 
+    database_connection = connect()
+    cursor = database_connection.cursor()
 
+    try:
+        query = f"DELETE FROM user WHERE id = {id}"
+        cursor.execute(query)
+        database_connection.commit()
+    except mysql.connector.Error:
+        print(f"{FAIL}Query is not correct{ENDC}")
+        raise SystemExit
+    finally:
+        if cursor:
+            cursor.close()
+            print(f"{OK}Cursor closed{ENDC}")
+        close_connection(database_connection)
 
-
-display_table()
+#remove_order()
+#create_order("Tuva", "Tuva123", "")
