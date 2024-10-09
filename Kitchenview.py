@@ -1,6 +1,6 @@
 # setting up flask framework 
 
-from flask import flask, request
+from flask import Flask, request
 
 kitchen = (__name__)
 
