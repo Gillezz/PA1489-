@@ -1,7 +1,8 @@
 """
 setting up flask framework 
 """
-
+import json
+from datetime import datetime
 from flask import Flask, request
 
 kitchen = Flask(__name__)
@@ -29,7 +30,21 @@ def receive_order(burger_name):
     for add_on, content in add_ons.items():
         print(f"- {add_on}: {content}")
 
-    return f"Order accepted {burger_name} with add-ons contents: {', '.join(add_ons.keys())}"
+    # Adding timestamp to the order
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Order recived at: {timestamp}")
+
+    # Adding json response
+
+    response = {
+        "message": f"Order accpted: {burger_name} with options: {','.join(add_ons.keys())}",
+        "timestamp": timestamp
+    }
+
+
+
+    return json.dumps(response)
 
 if __name__ == '__main__':
     kitchen.run(debug = True, host = '0.0.0.0', port = 5000)
