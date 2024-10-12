@@ -149,6 +149,9 @@ def create_order(burger_dict):
     database_connection = connect()
     cursor = database_connection.cursor()
     try:
+
+        # perhaps there is a method that can  take a dictonary and create the query for itself or i have to create that for myself 
+        #
         query = "INSERT INTO orders (burgerName, tomato, lettuce, onion, cheese, bacon, bun, meat) VALUES (%(burgerName)s, %(tomato)s, %(lettuce)s, %(onion)s, %(cheese)s, %(bacon)s, %(bun)s,%(meat)s)"
         #values = (burgerName, tomato, lettuce, lök, ost)
         cursor.execute(query,burger_dict)
@@ -190,5 +193,3 @@ def remove_order(id):
         close_connection(database_connection)
 
 validate_if_database_exists()
-#create_order("cheeseburger", True, True, True, True)
-#print(display_table())
