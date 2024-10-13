@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burgers Showcase</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
     <h2>Menu</h2>
     <section>
         <div class="burger-container">
             <h3>Classic Burger</h3>
-            <img src="../burger images/cheeseburger.jpg" alt="cheeseburger" class = "burger-images">
+            <img src="../static/img/cheeseburger.jpg" alt="cheeseburger" class = "burger-images">
             <form action="{{ url_for('read_form')}}" method = "post">
+                <input type="radio" class = "hidden" name="burgerName" value="classicBurger" checked>
                 <div class="input-container">
                     <label for="cheese">Remove Cheese</label>
                     <input type="checkbox" id="cheese" name="cheese">
@@ -28,14 +29,15 @@
                     <input type="checkbox" id="lettuce" name="lettuce">
                 </div>
             
-                <input type="submit" value="submit">
+                <input type="submit" id = "submit" value="submit">
             </form>
         </div>
 
         <div class="burger-container">
             <h3>Vegetarian Burger</h3>
-            <img src="../burger images/veggoburger.jpg" alt="veggoburger" class = "burger-images">
+            <img src="../static/img/veggoburger.jpg" alt="veggoburger" class = "burger-images">
             <form action="{{ url_for('read_form')}}" method = "post">
+                <input type="radio" class = "hidden" name="burgerName" value="veggoburger" checked>
                 <div class="input-container">
                     <label for="lettuce">Remove Lettuce</label>
                     <input type="checkbox" id="lettuce" name="lettuce">
@@ -51,7 +53,7 @@
                     <input type="checkbox" id="tomato" name="tomato">
                 </div>
             
-                <input type="submit" value="submit">
+                <input type="submit"  id = "submit" value="submit">
             </form>
         </div>
 
@@ -59,8 +61,9 @@
 
         <div class="burger-container">
             <h3>Chicken burger</h3>
-            <img src="../burger images/chickenburger.jpg" alt="cheeseburger" class = "burger-images">
+            <img src="../static/img/chickenburger.jpg" alt="cheeseburger" class = "burger-images">
             <form action="{{ url_for('read_form')}}" method = "post">
+                <input type="radio" class = "hidden" name="burgerName" value="chickenBurger" checked>
 
                 <div class="input-container">
                     <label for="jalapeno">Remove Jalapeno</label>
@@ -76,10 +79,17 @@
                     <label for="tomato">Remove tomato</label>
                     <input type="checkbox" id="tomato" name="tomato">
                 </div>
-            
-                <input type="submit" value="submit">
+                <input type="submit"  id = "submit" value="submit">
             </form>
         </div>
     </section>
+
+    <script>
+        document.querySelectorAll("#submit").forEach((button) => {
+            button.addEventListener("click", () => {
+                alert("Order Has Been Created!");
+            });
+        });
+    </script>
 </body>
 </html>

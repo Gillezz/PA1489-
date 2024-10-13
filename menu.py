@@ -12,17 +12,26 @@ def menu():
 @app.route('/', methods=['POST']) 
 def read_form(): 
     data = request.form 
-    print(data)
-    classic_burger = burgers.classic_burger
+    burger = data["burgerName"]
+
+    if burger == "classicBurger":
+        burger = burgers.classic_burger
+    elif burger == "chickenBurger":
+        burger = burgers.chicken_burger
+    else:
+        burger = burgers.vegeterian_burger
 
     # Check if the user want to remove a ingridient
     for key in data:
-        classic_burger[key] = 0
+        if key == "burgerName":
+            continue
+        burger[key] = 0
 
-    print(classic_burger)
+   # print(burger)
 
     #Send to database 
-    database.create_order(classic_burger)
+    database.create_order(burger)
+    
+    return render_template('index.html', message="order created!")
 
-    return "hej"
 app.run()

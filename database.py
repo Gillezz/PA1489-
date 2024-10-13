@@ -33,6 +33,13 @@ def validate_if_database_exists():
     `lettuce` tinyint(1) NOT NULL,
     `onion` tinyint(1) NOT NULL,
     `cheese` tinyint(1) NOT NULL,
+    `bun` tinyint(1) NOT NULL,
+    `meat` tinyint(1) NOT NULL,
+    `bacon` tinyint(1) NOT NULL,
+    `mockMeat` tinyint(1) NOT NULL,
+    `cucumber` tinyint(1) NOT NULL,
+    `chicken` tinyint(1) NOT NULL,
+    `jalapeno` tinyint(1) NOT NULL,
     PRIMARY KEY (`id`)
     )
     """
@@ -152,8 +159,10 @@ def create_order(burger_dict):
 
         # perhaps there is a method that can  take a dictonary and create the query for itself or i have to create that for myself 
         #
-        query = "INSERT INTO orders (burgerName, tomato, lettuce, onion, cheese, bacon, bun, meat) VALUES (%(burgerName)s, %(tomato)s, %(lettuce)s, %(onion)s, %(cheese)s, %(bacon)s, %(bun)s,%(meat)s)"
-        #values = (burgerName, tomato, lettuce, lök, ost)
+        query = """
+        INSERT INTO orders (burgerName, tomato, lettuce, onion, cheese, bun, meat, bacon, mockMeat, cucumber, chicken,jalapeno) 
+        VALUES (%(burgerName)s, %(tomato)s, %(lettuce)s, %(onion)s, %(cheese)s,%(bun)s,%(meat)s,%(bacon)s,%(mockMeat)s,%(cucumber)s,%(chicken)s,%(jalapeno)s)
+        """
         cursor.execute(query,burger_dict)
         database_connection.commit() 
 
