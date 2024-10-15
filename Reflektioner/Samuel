@@ -1,21 +1,38 @@
 # Samuels reflektion
 # Each one in the group has commited and pushed a git repository
 # We have created a new repository and added a file to it
+
 Group memmbers: Habib, Sebastian, Samuel and Yasir.
+
 Git commmands:
-             git pull - Fetch git from a repository
-             git push - Upload a file to github
-             git commit - updating a file (changes, removing and adding code counts as a commit)
-             git add * - add a file
-             git touch - create a empty file
+            git pull - Fetch git from a repository
+            git push - Upload a file to github
+            git commit - updating a file (changes, removing and adding code counts as a commit)
+            git add * - add a file
+            git touch - create a empty file
+
 Reflektion:
-              we have learned how to use git and github, we have learned how to create a repository and how to add a file to it.
-              we have also learned how to push and pull files from a repository.
-              we have also learned how to commit changes to a file.
-              we have also learnde how to create a empty file.
-              we have also learned how to add a file to a repository.
-              we have also learned how to remove a file from a repository.
-              we have also learned how to clone a repository.
+            we have learned how to use git and github, we have learned how to create a repository and how to add a file to it.
+            we have also learned how to push and pull files from a repository.
+            we have also learned how to commit changes to a file.
+            we have also learnde how to create a empty file.
+            we have also learned how to add a file to a repository.
+            we have also learned how to remove a file from a repository.
+            we have also learned how to clone a repository.
+
 Projects:
-              we have worked together on the project and each coded a part of the project.
-              The following projects have been made: Database, Burgerorder, index, menu and a kitchenview.
+            we have worked together on the project and each coded a part of the project.
+            The following projects have been made: Database, Burgerorder, index, menu and a kitchenview.
+            I have coded the kitchenview and created the repository for the project.
+
+Problems:
+            we have had some problems with the project mainly with understanding the assignment and how to code each project.
+            we have also had some problems with git and github but we have managed to sovle them.
+            we have also had some problems with understanding the code and how to use it.
+            some of the problems have been solved by asking the teacher for help and some have been solved by searching on the internet.
+
+Left to do:
+
+Before the project is finished we need to create a container for the project.
+
+                   
