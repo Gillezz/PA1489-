@@ -1,0 +1,20 @@
+# Habib reflections
+#we have decided that we  use Github and Git for our group project.Initially i had no idea how to use them,so i created a github account.
+#I was invitedto a repository by my groupmember Samuel who had created it and invited all the group member.
+#I had alot of trouble with Git command at first as i did not know how to navegate through it so i watched alot of tutorial videos.
+#I eventually learned  how to move through my files and understand where i was. first i ran git pull using the repository url  to download the files
+#After that i made some change to one of file to try ou commiting.Once i ensuredthat i was in the right directory i used git commit -m with 
+#a massage,follwed by git push to upload the changes. I successfully did my first cimmit
+
+
+Git Commands: 
+i used all these commands to navigate throuht  git in order to commit or open files or pull
+ls =to know where you are and wich folder you have 
+cd "file name" =you open the file
+cd ..= you backing up from the file
+git status = can be used to get a summery of which file have changes that are staged for the commit
+git pull =you use this with the url link to get the files from repository .I used it and put my files in the foder to commit
+git commit= when you 
+
+
+
