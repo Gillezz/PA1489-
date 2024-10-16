@@ -14,7 +14,20 @@ cd "file name" =you open the file
 cd ..= you backing up from the file
 git status = can be used to get a summery of which file have changes that are staged for the commit
 git pull =you use this with the url link to get the files from repository .I used it and put my files in the foder to commit
-git commit= when you 
+git commit= when you are ready to commit the snapshot of the staged change
+git push = you send it to the repository
+
+#Html Burger Menu:
+I decided to take responsibilty for the burgermenu. i alredy had visual  studio code istalled,so i started with html code.
+I had no idea how html worked  so i went to looked it up and began working on the menu i added three burger
+i added three burgers: Classic hamburgare,cheeseburgare,Veggie burgare and i added a checkbox in evrey burger menu.
+It was a bit challenging from start to finish, especially when i added chechboxes to each nurger option.the checkboxes
+contain three alternatives for each burger menu. It took a while to get it done.
+
+ 
 
 
+
+Problems:
+we have encontered alot of issues in our way including understanding the project properly and where to get started.
 
