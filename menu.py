@@ -1,37 +1,45 @@
-from flask import Flask, request, render_template 
-import burgers
-import database
+from flask import Flask, flash, jsonify, redirect,request, render_template, url_for
+from config import Config, create_database_if_not_exists
+from burger_model import db, Orders
+from burgers import burgers
 
 app = Flask(__name__)
+create_database_if_not_exists()
+app.config.from_object(Config)
 
+db.init_app(app)
+
+with app.app_context():
+    db.create_all()
+
+#home page
 @app.route('/', methods=['GET'])
-def menu():
+def home():
     return render_template("index.html")
 
+@app.route('/order', methods=['POST']) 
+def read_form():
+    try:
+        burger_information = request.form
+        burger_name = burger_information["burgerName"]
+        burger = burgers[burger_name]
 
-@app.route('/', methods=['POST']) 
-def read_form(): 
-    data = request.form 
-    burger = data["burgerName"]
+        if len(burger_information) != 1:
+            for ingredient in burger_information:
+                if ingredient == "burgerName":
+                    continue
+                burger[ingredient] = False
 
-    if burger == "classicBurger":
-        burger = burgers.classic_burger
-    elif burger == "chickenBurger":
-        burger = burgers.chicken_burger
-    else:
-        burger = burgers.vegeterian_burger
-
-    # Check if the user want to remove a ingridient
-    for key in data:
-        if key == "burgerName":
-            continue
-        burger[key] = 0
-
-   # print(burger)
-
-    #Send to database 
-    database.create_order(burger)
+        burger_order = Orders(**burger)
+        db.session.add(burger_order)
+        db.session.commit()
+        flash("Order has been created!", "success")
+        return redirect(url_for("home"))
+    except Exception:
+        db.session.rollback()
+        flash("Something went wrong!", "error")
+        return redirect(url_for("home"))
     
-    return render_template('index.html', message="order created!")
 
-app.run()
+if __name__ == "__main__":
+    app.run(port=3303)
