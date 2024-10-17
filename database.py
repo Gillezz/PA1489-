@@ -20,6 +20,8 @@ def validate_if_database_exists():
         password = PASSWORD,
         port=PORT
     )
+
+
     cursor = conn.cursor()
 
     cursor.execute("CREATE DATABASE IF NOT EXISTS burger")
