@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgers Showcase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Menu</h2>
+    <div class="flashes">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+      </div>
+
+
+    <section>
+        <div class="burger-container">
+            <h3>Classic Burger</h3>
+            <img src="{{ url_for('static', filename='img/cheeseburger.jpg') }}" alt="cheeseburger" class="burger-images">
+            <form action="{{ url_for('read_form') }}" method="post">
+                <input type="radio" class="hidden" name="burgerName" value="classicBurger" checked>
+                <div class="input-container">
+                    <label for="cheese">Remove Cheese</label>
+                    <input type="checkbox" id="cheese" name="cheese">
+                </div>
+                <div class="input-container">
+                    <label for="onion">Remove Onion</label>
+                    <input type="checkbox" id="onion" name="onion">
+                </div>
+                <div class="input-container">
+                    <label for="lettuce">Remove Lettuce</label>
+                    <input type="checkbox" id="lettuce" name="lettuce">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="burger-container">
+            <h3>Vegetarian Burger</h3>
+            <img src="{{ url_for('static', filename='img/veggoburger.jpg') }}" alt="veggoburger" class="burger-images">
+            <form action="{{ url_for('read_form') }}" method="post">
+                <input type="radio" class="hidden" name="burgerName" value="vegetarianBurger" checked>
+                <div class="input-container">
+                    <label for="lettuce">Remove Lettuce</label>
+                    <input type="checkbox" id="lettuce" name="lettuce">
+                </div>
+                <div class="input-container">
+                    <label for="cucumber">Remove Cucumber</label>
+                    <input type="checkbox" id="cucumber" name="cucumber">
+                </div>
+                <div class="input-container">
+                    <label for="tomato">Remove Tomato</label>
+                    <input type="checkbox" id="tomato" name="tomato">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="burger-container">
+            <h3>Chicken Burger</h3>
+            <img src="{{ url_for('static', filename='img/chickenburger.jpg') }}" alt="chickenburger" class="burger-images">
+            <form action="{{ url_for('read_form') }}" method="post">
+                <input type="radio" class="hidden" name="burgerName" value="chickenBurger" checked>
+                <div class="input-container">
+                    <label for="jalapeno">Remove Jalapeno</label>
+                    <input type="checkbox" id="jalapeno" name="jalapeno">
+                </div>
+                <div class="input-container">
+                    <label for="lettuce">Remove Lettuce</label>
+                    <input type="checkbox" id="lettuce" name="lettuce">
+                </div>
+                <div class="input-container">
+                    <label for="tomato">Remove Tomato</label>
+                    <input type="checkbox" id="tomato" name="tomato">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
