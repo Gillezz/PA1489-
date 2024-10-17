@@ -2,7 +2,7 @@ import mysql.connector
 
 # for some reason i have to put my port aswell 
 # Change accordingly for your own server details
-HOST = "localhost"
+HOST = "db"
 USER = "root"
 PASSWORD = ""
 DATABASE = "burger"
