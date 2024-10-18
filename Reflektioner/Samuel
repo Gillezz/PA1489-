@@ -4,12 +4,12 @@
 
 Group memmbers: Habib, Sebastian, Samuel and Yasir.
 
-Git commmands:
+'Git commmands:
             git pull - Fetch git from a repository
             git push - Upload a file to github
             git commit - updating a file (changes, removing and adding code counts as a commit)
             git add * - add a file
-            git touch - create a empty file
+            git touch - create a empty file'
 
 Reflektion:
             we have learned how to use git and github, we have learned how to create a repository and how to add a file to it.

@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: your-app-image  
+    ports:
+      - "3000:3000"  
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306  
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=burger
+  db:
+    image: mysql:latest 
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=burger
+    ports:
+      - "3308:3306"  
+
