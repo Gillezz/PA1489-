@@ -87,3 +87,7 @@ input[type="submit"] {
     margin-left: auto;
     display:block;
 }
+
+.hidden {
+    display: none;
+}

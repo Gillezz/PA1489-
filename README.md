@@ -1,3 +1,11 @@
+FÖR att starta programmet måste du göra följande 
+docker-compose up --build
+docker-compose up
+
+
+ladda ner docker och docker compose
+
+
 # Övergripande uppgift
 
 ## Det ska utvecklas en webklient för att beställa och ändra burgare,

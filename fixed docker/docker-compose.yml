@@ -1,0 +1,63 @@
+# version: "3.8"
+# services:
+#   front:
+#     build: ./frontend
+#     ports:
+#       - 5000:5000
+#     environment:
+#       - DB_URL=mysql://root:password@db/burger  # Update connection URL for MySQL
+#   kitchen:
+#     build: ./kitchen
+#     ports:
+#       - 5001:5001
+#     environment:
+#       - DB_URL=mysql://root:password@db/burger  # Update connection URL for MySQL
+#   db:
+#     image: mysql:5.7  # Use a MySQL image, such as version 5.7
+#     environment:
+#       MYSQL_ROOT_PASSWORD: password          # Set a root password
+#       MYSQL_DATABASE: burger                  # Initial database to create
+#       MYSQL_USER: user                       # Optional: create a new user
+#       MYSQL_PASSWORD: user_password          # Optional: password for new user
+#     ports: 
+#       - 3307:3307                            # Expose MySQL on port 3307 //3306 already taken 
+#     volumes:
+#       - vidly:/var/lib/mysql                 # Store MySQL data persistently
+
+# volumes:
+#   vidly:
+version: "3.8"
+services:
+  front:
+    build: ./frontend
+    ports:
+      - 5000:5000
+    environment:
+      - DB_URL=mysql://root:password@db/burger
+    depends_on:
+      - db
+
+  kitchen:
+    build: ./kitchen
+    ports:
+      - 5001:5001
+    environment:
+      - DB_URL=mysql://root:password@db/burger
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: burger
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    ports: 
+      - 3307:3306  # Expose MySQL on external port 3307
+    volumes:
+      - vidly:/var/lib/mysql
+
+volumes:
+  vidly:
+

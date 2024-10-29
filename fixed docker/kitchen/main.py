@@ -29,6 +29,4 @@ def display_orders():
     return result
 
 if __name__ == "__main__":
-    #app.run(debug=True)
-    app.run(port=3307)
-#https://flask.palletsprojects.com/en/3.0.x/templating/#controlling-autoescaping
+    app.run(host="0.0.0.0", port=5001, debug=True)

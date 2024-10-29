@@ -3,11 +3,11 @@ Configuration file for Flask application
 """
 import MySQLdb
 
-HOST = "localhost"
+HOST = "db"
 USER = "root"
-PASSWORD = ""
+PASSWORD = "password"
 DATABASE = "burger"
-PORT = 3308
+PORT = 3306
 
 
 def create_database_if_not_exists():
