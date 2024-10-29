@@ -105,7 +105,7 @@ Usefullness of Debugging: I understan debbuging is a poerful tool for identifyin
 
 Conclusion: Debugging proved to be an invalubale tool for helping me understand what happens behind the scene of the code. By modifying the DATABASE varibale and observing the changes, I gaind insights into how diffrent database names affect the execution of the code. This exercise has enhance my confidence in using debugging as atool for future projects. 
 
-
+link to debugging session: https://github.com/Gillezz/PA1489-/blob/ba79cc8679c00fe51752cc88bd14c3ab243b734d/Reflektioner/Samuel_debug_session_output.txt
 
 # Day 12-
 We all are doing some more polishing on the work and filling in things we missed and hope full ysoon come to an end of the project. 
