@@ -4,44 +4,109 @@
 
 Group memmbers: Habib, Sebastian, Samuel and Yasir.
 
-We started the project thinking about setting up all the work and assigning the tasks to each other. Over the cousrse we have constantly worked together even if we faced hardships we got through. The task is about building a website containing a burgerorder. we also needed a container and debugging. 
+The days are not aligned int time with assignemnt start and just counts as the days we worked at the projects. We may have worked more or less but this is the estimated amount. 
 
-Some things we have learned:
+# Day 1: Project Kickoff
 
-'Git commmands:
-            git pull - Fetch git from a repository
-            git push - Upload a file to github
-            git commit - updating a file (changes, removing and adding code counts as a commit)
-            git add * - add a file
-            git touch - create a empty file'
+Today, we started he project by setting up all the work and assigning tasks to each other. We discussed our approach and decided on the structure of our website, which will contain a burger order system. We also planned to use containers and debugging tools.
+ 
 
-Reflektion:
-            we have learned how to use git and github, we have learned how to create a repository and how to add a file to it. 
-            we have also learned how to push and pull files from a repository.
-            we have also learned how to commit changes to a file.
-            we have also learnde how to create a empty file.
-            we have also learned how to add a file to a repository.
-            we have also learned how to remove a file from a repository.
-            we have also learned how to clone a repository.
+# Day 2-3: Inital Setup and Git Basics
 
-Projects:
-            we have worked together on the project and each coded a part of the project.
-            The following projects have been made: Database, Burgerorder, index, menu and a kitchenview.
-            I have coded the kitchenview and created the repository for the project.
+We began by creating a repository On Github and learning some basic Git commands.
 
-Problems:
-            we have had some problems with the project mainly with understanding the assignment and how to code each project.
-            we have also had some problems with git and github but we have managed to sovle them.
-            we have also had some problems with understanding the code and how to use it.
-            some of the problems have been solved by asking the teacher for help and some have been solved by searching on the internet. 
+• git pull: Fetch changes from a repository
+• git push: Upload changes to GitHub
+• git commmit: Save changes to the local repository
+• git add *: Add files to the staging area
+• git touch: Create an empty file 
 
-Containers: We have uesd containers and managed to get the files working inside of them.
-Debugging:  We have managed to just touch the tip of the debbuggings and run some tests but not much.
+# Day 4-5: Collaborative Coding 
 
-Overall: The course have been very challenging and my personal opnion a bit too early for us newcommers. On the other hand iv'e learned a lot and iv'e got to know some people. 
+We worked together on diffrent parts of the project. Each member was assigned a 
+specific task:
+
+• Database setup
+• Burger order functionality
+• Index page
+• Menu page
+• Kitchen view (which I worked on)
+
+# Day 6: Facing Challenges
+
+We encountered some challenges today, mainly with understanding the assignment and coding each part of the project. We also faced issues with Git and Github, but we manged to resovle them by collaborating and seeking help from our teacher and online resources.
+
+# Day 7-8: Progress and Learning
+
+We continued to make progress on our project. Here are some things we learned:
+
+• How to use Git and Github effectively
+• Creating and manging repositories
+• Pushing and pulling files from a repository
+• Commiting and adding files to a repository
+• Removing files from a repository
+• Cloning repositories
+
+# Day 10: Containerization
+
+Today, we focused on using using containers. We maned to get our files working inside containers, whcih was a signifcant milestone for us.
+
+# Day 11-12: Debugging
+
+I chose to debug the functionality of creating a MySQL database if it dosen't exist. Specifically, i focused on the create_database_if_notexits function in the config.py file.
+
+I started the debug in VS code and configured the settings to "Python File".
+Now i began the debug session.
+
+I set breakpoints at the following lines in config.py:
+• Line 14: connection = MySQLdb.connect(...)
+• Line 18: cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+• Line 22: DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+
+for some reason and i don't know why but when running the debug it skipped over line 14 and 18. Only Line 22 was being marked and i could only do observation on that single line. 
+
+For the controls you can either use the panel or F keys.
+
+• Continue (F5): Used to run the program until the next breakpoint.
+• Step Over (F10): Used to execute the next line of code whitout stepping into
+functions.
+• Step into(F11): Used to step into the function call.
+• Step out(Shift+F11): Used to step out of the current function.
+
+I added DATABSE, connection, and DATABASE_URL to the Watch panel.
+Observed their values as i stepped through the code. 
+
+I modified the DATABASE varibales from "burger" to "bläää" to simulate a diffrent scenario.
+
+Ran the modified and orginal DATABSE.
+
+• When i ran orginial The database was created successfully with the name "burger".
+DATABASE_URL was set to mysql+mysqldb://root:@localhost:3308/burger.
+Modified Value: DATABASE = "bläää"
+
+• When i ran the modified DATABASE
+The database was created successfully with the name "bläää".
+DATABASE_URL was set to mysql+mysqldb://root:@localhost:3308/bläää
+
+
+I ordered diffrent menu items to change the DATABASE value to simulate diffrent menu items
+I also stopped the debug session midway to see the impact on databse creation.
+
+The impact on the code executions manifested in some pretty straight forward ways for me. Changing the DATABASE value affcted the name of the database being created. The DATABSE_URL reflected the new database name. 
+Stopping the debug session midway did not create the database. 
+
+Summary and Reflection: 
+
+What went well?: Successfully change varbiales and seeing the changes made.
+
+What was challenging?: To set breakpoints and make the debug go trough each one.
+
+Usefullness of Debugging: I understan debbuging is a poerful tool for identifying and fixing issus in the code. However i find it a bit slow and wanky but maybe because i'm very new to it and that i ran into some problems. More so the best i got from it was the help of understanding the flow in the code and in which order the code runs.
+
+Conclusion: Debugging proved to be an invalubale tool for helping me understand what happens behind the scene of the code. By modifying the DATABASE varibale and observing the changes, I gaind insights into how diffrent database names affect the execution of the code. This exercise has enhance my confidence in using debugging as atool for future projects. 
 
 
 
+# Day 12-
+We all are doing some more polishing on the work and filling in things we missed and hope full ysoon come to an end of the project. 
 
-
-                   
