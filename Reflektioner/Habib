@@ -1,50 +1,88 @@
-# Habib reflections
-#we have decided that we  use Github and Git for our group project.Initially i had no idea how to use them,so i created a github account.
-#I was invitedto a repository by my groupmember Samuel who had created it and invited all the group member.
-#I had alot of trouble with Git command at first as i did not know how to navegate through it so i watched alot of tutorial videos.
-#I eventually learned  how to move through my files and understand where i was. first i ran git pull using the repository url  to download the files
-#After that i made some change to one of file to try ou commiting.Once i ensuredthat i was in the right directory i used git commit -m with 
-#a massage,follwed by git push to upload the changes. I successfully did my first cimmit
+Engineering Diary
+Habib
+Day 1: Introduction to Git and GitHub
+We have decided that we will use GitHub and Git for our group project. Initially, I had no idea how to use them, so I created a GitHub account. I was invited to a repository by my group member Samuel, who had created it and invited all the group members.
 
+Day 2: Learning Git Commands
+I had a lot of trouble with Git commands at first, as I did not know how to navigate through it, so I watched a lot of tutorial videos. I eventually learned how to move through my files and understand where I was. First, I ran git pull using the repository URL to download the files.
 
-Git Commands: 
-i used all these commands to navigate throuht  git in order to commit or open files or pull
-ls =to know where you are and wich folder you have 
-cd "file name" =you open the file
-cd ..= you backing up from the file
-git status = can be used to get a summery of which file have changes that are staged for the commit
-git pull =you use this with the url link to get the files from repository .I used it and put my files in the foder to commit
-git commit= when you are ready to commit the snapshot of the staged change
-git push = you send it to the repository
+Day 3: Committing Changes
+After that, I made some changes to one of the files to try out committing. Once I ensured that I was in the right directory, I used git commit -m with a message, followed by git push to upload the changes. I successfully did my first commit.
 
-#Html Burger Menu:
-I decided to take responsibilty for the burgermenu. i alredy had visual  studio code istalled,so i started with html code.
-I had no idea how html worked  so i went to looked it up and began working on the menu i added three burger
-i added three burgers: Classic hamburgare,cheeseburgare,Veggie burgare and i added a checkbox in evrey burger menu.
-It was a bit challenging from start to finish, especially when i added chechboxes to each nurger option.the checkboxes
-contain three alternatives for each burger menu. It took a while to get it done.
+Day 4: Git Commands Overview
+I used several commands to navigate through Git in order to commit or open files or pull:
 
- 
+ls: To know where I am and which folder I have.
+cd "file name": To open the file.
+cd ..: To go back from the file.
+git status: To get a summary of which files have changes that are staged for the commit.
+git pull: Used with the URL link to get the files from the repository.
+git commit: When I was ready to commit the snapshot of the staged changes.
+git push: To send it to the repository.
+Day 5: HTML Burger Menu
+I decided to take responsibility for the burger menu. I already had Visual Studio Code installed, so I started with HTML code. I had no idea how HTML worked, so I looked it up and began working on the menu. I added three burgers: Classic hamburgare, cheeseburgare, Veggie burgare, and I added a checkbox in every burger menu.
 
+Day 6: Checkbox Implementation Challenges
+It was a bit challenging from start to finish, especially when I added checkboxes to each burger option. The checkboxes contain three alternatives for each burger menu. It took a while to get it done.
 
-Problems
-througout our project, we have encounterd sevrel challenges,particularly in understanding the scope and requirements of the project abd determining where to begin setting up the kitchen view using Flask and configuirng the necessary envoiroment posted significant difficulties,especially when istalling  required packeges such as pip and Myqsl.
-despite initial setbacks , we were able to run both the database and the burger menu , though this process was not without its complations.One of the significant challenges we faced was creating containers for different parts of the project. After 
-careful consideration ,we decided to implement Docker to manage these containers .Our solution  involved cretaing three seperate containers : One for the frontend ,one for the backend and one for the database.
-however , creating Docker containers images proved to be highly complex and added another layer of the defficulty to the process.We used the Docker build ., command to build the image ,which works if a Dockerfile has been properly created in the project files.Additionally  docker ps .was useful for displaying the running containers and their IDs, while docker images. allowed us to check how many images we had and view their corresponding IDS. I used docker-compose build to  make the coantains and docker-compose up
-docker commands:
-docker ps 
-docker build.
+Day 7: Project Challenges
+Throughout our project, we encountered several challenges, particularly in understanding the scope and requirements of the project. Determining where to begin setting up the kitchen view using Flask and configuring the necessary environment posed significant difficulties, especially when installing required packages such as pip and MySQL.
+
+Day 8: Running the Database and Burger Menu
+Despite initial setbacks, we were able to run both the database and the burger menu, though this process was not without its complications. One of the significant challenges we faced was creating containers for different parts of the project. After careful consideration, we decided to implement Docker to manage these containers.
+
+Day 9: Docker Implementation
+Our solution involved creating three separate containers: one for the frontend, one for the backend, and one for the database. However, creating Docker container images proved to be highly complex and added another layer of difficulty to the process. We used the docker build . command to build the image, which works if a Dockerfile has been properly created in the project files.
+
+Day 10: Useful Docker Commands
+Additionally, docker ps was useful for displaying the running containers and their IDs, while docker images allowed us to check how many images we had and view their corresponding IDs. I used docker-compose build to create the containers and docker-compose up.
+
+Day 11: Docker Commands List
+The commands that we have used in order to create the images and the containers:
+
+docker ps
+docker build .
 docker images
 docker start
-docker stop  
+docker stop
 docker-compose build
 docker-compose up
-these are the command that we have used in order to create the images and the containers.
+Day 12: Testing and Debugging
+I decided to create a container specifically for the kitchen view, but I faced many difficulties throughout the process. I attempted to solve these challenges. When I created a container for the kitchen view and began analyzing and debugging it, I encountered over 121 vulnerabilities and more than 594 packages, which I had no idea how to resolve or even what was causing these issues.
 
+Day 13: Debugging Documentation for display_orders Function
+I conducted a debugging session for the display_orders function in my Flask application using Visual Studio Code. Here’s a summary of the process:
 
-Test and debugigng :
-when i created a contain for kitchenvew and statred to analyis and debug it it had over 121 Vulnerabilites and over 594 packages whcih i had no idea how to fix it or what was causing the issues 
+Functionality Tested:
+I focused on the display_orders function, which retrieves all orders from the database and filters them for display.
 
-Projects:
- we have used alot of  tools  in order to get done our porject such as Git,Github,Visual studio code,database,Docker desktop,pip,flask
+Breakpoints:
+I set breakpoints after the line where orders are fetched (orders = Orders.query.all()) and right before the return statement. This allowed me to inspect the state of the application at critical points.
+
+Debugger Controls:
+I utilized the debugger controls:
+
+Continue: To run the code until the next breakpoint.
+Step Over: To execute the current line without diving into function calls.
+Step Into: To go into the function being called if necessary.
+Step Out: To exit the current function and return to the calling function.
+Watched Variables:
+I monitored the following variables:
+
+orders: To check if the correct orders are fetched from the database.
+filtered_orders_list: To see the results after filtering out unwanted keys.
+result: To verify the final output string being constructed.
+Tested Paths:
+I tested different scenarios, such as:
+
+Fetching orders with various attributes.
+Modifying orders and checking how it impacts the output.
+Ensuring that filtering correctly removes keys like id and burgerName.
+Summary:
+The debugging session clarified the data flow in the display_orders function and confirmed that the filtering logic worked as intended. Overall, debugging proved to be an invaluable tool for understanding the behavior of the code and ensuring the functionality met the project requirements.
+
+Day 14: Tools Used for the Project
+We have used several tools to complete our project, including Git, GitHub, Visual Studio Code, a database, Docker Desktop, pip, and Flask.
+
+Day 15: Personal Reflection
+Reflecting on my experience, I have faced numerous difficulties and challenges throughout this project. As someone who has never programmed before and was unfamiliar with many of the concepts we encountered, the process was particularly daunting. However, I was able to overcome these challenges with the support of my group members and guidance from our professor.

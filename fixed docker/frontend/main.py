@@ -1,4 +1,4 @@
-from flask import Flask, flash, jsonify, redirect,request, render_template, url_for
+from flask import Flask, flash, redirect,request, render_template, url_for
 from config import Config, create_database_if_not_exists
 from burger_model import db, Orders
 from burgers import burgers
@@ -42,4 +42,12 @@ def read_form():
     
 
 if __name__ == "__main__":
-    app.run(port=3303)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
+# docker container run -d -p 5000:5000 Elfving1/flask-app:LATEST
+# docker container run -d -p 5000:5000 Elfving1/flask-app:LATEST
+#docker run -d --name mysql_db -e MYSQL_ROOT_PASSWORD=root -p 3307:3307 mysql:latest
+
+
