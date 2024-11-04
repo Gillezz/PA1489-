@@ -110,31 +110,101 @@ def create_database_if_not_exists():
     cursor.close()
     connection.close()
 
-DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
-
-class Config:
-    SECRET_KEY = "very_very_secret_key"
-    SQLALCHEMY_DATABASE_URI = DATABASE_URL
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-Koden fungerar som konfiguration för en Flask-applikation och hanterar inställningarna
-för en MySQL-databasanslutning. Först importeras MySQLdb för att interagera med databasen,
-och HOST, USER, PASSWORD, DATABASE, och PORT variablerna specificeras för att kunna ansluta till databasen. 
-create_database_if_not_exists, skapar en databas om den inte redan finns. Funktionen
-ansluter till MySQL-servern med de angivna detaljerna, skapar en cursor för att köra SQL-kommandot
-och utför ett kommando för att skapa databasen om den inte finns. Cursorn och anslutningen stängs 
-sedan för att spara resurser. DATABASE_URL sätts upp som en URI (Uniform Resource Identifier) För
-SQLAlchemy med hjälp av databasuppgifterna, vilket underlättar anslutningen till databasen för Flask.
-Sedan definieras en konfigurationsklass, Config, för Flask-applikationen. Denna klass innehåller
-inställningar som SECRET_KEY Detta är en viktig säkerhetsinställning i Flask som används
-för att skydda sessionsdata, cookies och motverka attacker.
-Nyckeln krypterar och verifierar data mellan klient och server, så den ska vara unik och hemlig.
-SQLALCHEMY_DATABASE_URI: Detta URI används av SQLAlchemy för att ansluta till databasen.
-Det specificerar databasens användarnamn, lösenord, värd, port och namn, 
-vilket krävs för att köra SQL-frågor och hantera data.
-SQLALCHEMY_TRACK_MODIFICATIONS: Denna inställning avgör om SQLAlchemy
-ska spåra ändringar i objekt, vilket annars kan påverka minnesanvändningen.
-Om den sätts till False sparar applikationen resurser genom att undvika onödiga
-spårningshändelser.
+plasering av brytpunkter
+
+Under denna debug-session undersöker jag funktionen create_database_if_not_exists.
+Denna funktion ansvarar för att ansluta till en MySQL-server och skapa
+en databas om den inte redan existerar. Målet är att kontrollera att anslutningen
+till databasen etableras korrekt,
+att SQL-kommandot körs utan problem och att anslutningen stängs korrekt.
+Jag vill även verifiera att varje anslutningsparameter (HOST, USER, PASSWORD, DATABASE, PORT)
+SQL-exekvering och stängning av resurser fungerar (connection och cursor) som förväntat.
+
+Brytpunkter
+
+Första Brytpunkten  
+    Där connection - objektet skapas:
+    connection = MySQLdb.connect(...)
+
+    Syfte: Denna rad är viktig eftersom den försöker ansluta till databasservern. 
+    Här vill jag verifiera att anslutningsparametrarna (host, user, password och port)
+    är korrekta och att anslutningarna skapas utan problem.
+
+Andra Brytpunkten
+    cursor = connection.cursor()
+
+    Syfte: Denna rad initierar en cursor för att köra SQL-kommandon.
+    Jag vill säkerställa att cursorn skapas korrekt, 
+    vilket skulle bekräfta att databasanlutningen fortfarande är aktiv.
+
+Tredje Brytpunkten  
+    Plats: På raden där SQL-kommandot körs:
+    cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+
+    Syfte: Detta är där SQL-kommandot skickas till MySQL-servern. 
+    Jag har satt denna brytpunkt för att bekräfta att kommandot körs utan
+    problem och att databasen antingen skapades eller redan finns.
+
+Sista Brytpunkten  
+    Plats: På raderna där cursorn och anslutningen stängs:
+    cursor.close()
+    connection.close()
+    
+    Syfte: Att stänga resurser är viktigt för att undvika öppna anslutningar och potentiella minnesläckor.
+    Jag har satt en brytpunkt här för att kontrollera att både cursorn och anslutningen
+    stängs korrekt efter SQL-exekveringen.
+
+Debug-sessionen
+
+Första Brytpunkten: Initiera Anslutningen 
+    När programmet pausar vid första brytpunkten, inspekterade jag anslutningsparametrarna:
+        - HOST: "db"
+        - USER: "root"
+        - PASSWORD: "password"
+        - PORT: 3306
+   Dessa värden matchade den förväntade konfigurationen för min MySQL-container.
+   Jag fortsatte därefter exekveringen för att etablera databasanlutningen.
+
+Andra Brytpunkten: Skapa Cursorn
+   Vid den andra brytpunkten bekräftar jag att connection objektet har skapats korrekt:
+   Detta objekt var en giltig aktiv anslutning. Vilket indikerar att databasservern är tillgänglig.
+   Jag forsätter sedan vidare för att skapa cursor-objektet, som också initialiserades korrekt:
+
+   - cursor: Att cursorn skapades bekräftade att anslutningen 
+   fungerade korrekt och var redo att köra SQL-kommandon.
+
+Tredje Brytpunkten: Exekvera SQL-kommandot  
+    Programmet pausar på raden där SQL-kommandot körs. SQL-kommandot skickade:
+    sql CREATE DATABASE IF NOT EXISTS burger
+    Efter att ha stegat över denna rad kontrollerade jag om några undantag eller fel uppstod,
+    men inga sådana hittades. Detta bekräftade att kommandot exekverades utan problem 
+    och att databasen antingen redan fanns eller skapades utan problem.
+
+Sista Brytpunkten: Stänga Resurserna  
+    Vid sista brytpunkten verifierar jag att både cursor och connection stängs utan problem:
+        - cursor: <closed MySQLdb.cursors.Cursor object at 0x...>
+        - connection: <closed MySQLdb.Connection object at 0x...>
+   Detta bekräftar att resurserna stängs korrekt och att inga öppna anslutningar
+   eller minnesläckor kvarstår.
+
+
+Observing Variabler
+
+Under debug-sessionen övervakade jag nyckelvariabler för att förstå flödet och
+förändringar i deras tillstånd:
+
+- Anslutningsparametrar: Verifierade i början för att säkerställa korrekt konfiguration.
+- connection - Objektet: Observerades efter initiering för att bekräfta att det var aktivt och giltigt.
+- cursor - Objektet: Kontrollerades efter skapandet för att säkerställa beredskap för SQL-exekvering.
+- Exekvering av SQL-kommandot: Verifierades att köras framgångsrikt utan fel.
+- Stängning av Resurser: Observerade att både cursor och connection 
+stängdes korrekt efter exekvering.
+
+Sammanfattning
+Debug-sessionen visade att funktionen fungerade som förväntat, 
+med korrekt hantering av databasanlutning, SQL-kommandot och stängning av resurser.
+Inga problem upptäcktes, och alla resurser frigjordes korrekt i slutet. Detta bekräftar
+att funktionen fungerar i sitt nuvarande tillstånd.
 
