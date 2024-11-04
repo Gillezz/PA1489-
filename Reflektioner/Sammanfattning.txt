@@ -1,0 +1,61 @@
+1. gruppmedlemmar Sebastian, Samuel, Yasir, Habib
+
+2. repository = https://github.com/Gillezz/PA1489-
+
+3. 
+Konfigurationshantering handlar om att organisera
+och hålla koll på alla delar av ett projekt – såsom kod,
+inställningar och verktyg – så att alla i teamet alltid
+jobbar med rätt och uppdaterade versioner. Varje gång något ändras,
+som en uppdatering i koden eller en justering i inställningarna, registreras det och visas
+för alla medlemmar. 
+
+4. 
+Det vanligaste arbetsflödet för ett Git-repo börjar med att initialisera
+ett nytt projekt, vilket görs med kommandot git init.
+Detta skapar ett lokalt repo där du kan börja lägga till filer och spåra ändringar.
+När ditt projekt är initierat, lägg till dina projektfiler till staging area med
+kommandot git add <file_name>.
+Sedan sparar du ändringarna med en commit genom att skriva git commit -m "commit message" 
+och inkludera ett meddelande som beskriver ändringen. Commit:en skapar en punkt i historiken
+som du kan återgå till vid behov. För att koppla ditt lokala repo till ett github-repo,
+skapar du först ett nytt repo på github och kopierar repo-URL:en.
+Använd sedan kommandot git remote add origin <repository_URL> 
+för att länka ditt lokala repo till githubs repo. När detta är gjort
+kan du ladda upp dina commits med git push -u origin <branch_name>. 
+
+5.
+• Vad gick bra?
+    Kommunikationen mellan oss gruppmedlemmar har alltid varit väldigt god.
+    Ifall man har stött på problem eller inte förstår vad som händer i koden
+    har personen som skrivit koden alltid gjort sitt bästa för att förklara 
+    och gå igenom stegvis vad som händer så att de andra gruppmedlemmarna förstår.
+    Vi hade en tydlig struktur och arbetsfördelning där alla medlemmar visste vad de
+    skulle arbeta med och hur vi skulle implementera koden i repositoryt på ett effektivt sätt.
+    Varje uppgift var tydligt definierad, vilket minskade risken för överlappning och missförstånd.
+    Vi delade upp projektet i mindre delar och varje medlem fick ansvar 
+    för specifika funktioner eller komponenter.
+
+• Vad gick mindre bra?
+    Kunskapsnivån mellan gruppmedlemmarna varierade kraftigt, där en medlem hade betydligt
+    mer erfarenhet och kunskap inom området från tidigare projekt. Detta skapade en viss 
+    obalans i arbetsfördelningen, eftersom den mer erfarna medlemmen ofta fick ta på sig
+    att lösa problem och vägleda de andra i vissa delar av arbetet. Även om detta
+    ledde till snabbare lösningar på komplexa problem, innebar det också att en större del 
+    av arbetet låg på en person.
+
+• Hur löste ni svårigheterna? Hade ni kunnat göra annorlunda?
+    Vi hanterade svårigheterna genom att fokusera på öppen kommunikation 
+    och samarbete inom gruppen. Den mer erfarna medlemmen tog en aktiv roll
+    i att dela sin kunskap genom regelbundna genomgångar, där
+    vi gick igenom tekniska utmaningar och lösningar tillsammans.
+    Detta gjorde att de mindre erfarna medlemmarna kunde ställa frågor 
+    och få en djupare förståelse för programets uppbyggnad.
+
+• Vad lyckades ni inte lösa? Varför inte?
+    Vi lyckades lösa alla våra problem
+
+
+
+
+

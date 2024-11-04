@@ -1,0 +1,49 @@
+1. Sebastian, Samuel. Habib, yasir
+2. https://github.com/Gillezz/PA1489-/tree/main
+
+3.
+I det här projektet har vi utvecklat ett hamburgarbeställningssystem som använder
+Docker för att skapa separata moduler för olika funktioner. Varje container har 
+en specifik uppgift. Frontcontainern hanterar användarinteraktioner och tar emot
+beställningar, medan kökscontainern visar aktuella beställningar för kökspersonalen.
+Databascontainern lagrar informationen i MySQL format, vilket säkerställer att all data bevaras 
+korrekt. Genom att designa systemet på detta sätt förbättras kommunikationen mellan tjänsterna,
+vilket gör användarupplevelsen mer effektiv och smidig. Vi har valt att skapa 4 olika moduler.
+representerar en beställningstabell där varje attribut motsvarar en ingrediens
+samt namnet på hamburgaren. Config som hanterar anslutningen till databasen samt skapar databasen ifall
+den inte existerar. Burgers sammling av alla hamburgare och dess ingredienser. Det finns två olika main
+filer den ena skapar ordern och skickar den till databasen och den andra hämtar från databasen och visar
+resultatet i en html struktur. 
+
+
+
+
+
+
+4. 
+I projektet har vi haft en blandning av både framgångar och utmaningar som vi har
+hanterat tillsammans. Implementeringen av koden gick överlag bra, särskilt tack vare 
+den tydliga dokumentationen kring Flask, vilket hjälpte oss att förstå de olika komponenterna.
+Vår kommunikation inom gruppen var också en stor styrka, vi kunde snabbt dela idéer och lösa problem
+gemensamt. Dock stötte vi inledningsvis på problem med containrar, eftersom
+detta var ett nytt koncept för oss alla. Vi kämpade lite med att få dem att 
+fungera som vi ville, men efter att ha sett några instruktionsvideor på YouTube
+och läst i dokumentationen började vi få en bättre förståelse för hur vi skulle implementera dem.
+En annan faktor som påverkade vårt arbete var att gruppens kunskapsnivåer varierade. Detta var både
+en positiv och negativ aspekt, å ena sidan bidrog det till att vi kunde lära oss av varandra, men å
+andra sidan innebar det ibland att vissa jobbade mer än andra. Vi insåg att det är viktigt att dela
+kunskap och stötta varandra för att alla ska känna sig delaktiga.
+Generellt sett var det en lärorik upplevelse, och vi kunde förbättra våra färdigheter i
+programmering och containerhantering genom samarbetet. Vi känner att vi har vuxit som utvecklare
+och har nu en mycket bättre förståelse för hur man arbetar med moderna teknologier i ett projekt.
+
+5.
+Vi stötte på flera problem i början av projektet när 
+vi skulle implementera containers. Specifikt hade vi
+utmaningar med att få containrarna att kommunicera effektivt
+och säkerställa att de startade i rätt ordning. Initialt ledde
+detta till att vår applikation inte kunde nå databasen, vilket
+skapade frustration. För att lösa dessa svårigheter implementerade
+vi depends_on och hälsokontroller för att säkerställa att tjänsterna 
+var redo innan de försökte kommunicera med varandra. Det var en lärorik process,
+men vi kände att det kunde ha gjorts smidigare med bättre planering.
