@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+    <h1>Order List</h1>
+    {% for order in orders %}
+        <p>{{ order.keys() | join(', ') }}</p>
+    {% endfor %}
+</body>
+</html>

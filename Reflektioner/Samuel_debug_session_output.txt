@@ -1,0 +1,38 @@
+Breakpoint hit at line 14,
+Variables:
+  HOST = "localhost"
+  USER = "root"
+  PASSWORD = "password"
+  PORT = 3306
+  DATABASE = "bläää"
+
+Executing: connection = MySQLdb.connect(...)
+Connection established successfully.
+
+Breakpoint hit at line 18
+Executing: cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+Database "bläää" created successfully.
+
+Breakpoint hit at line 22
+Variables:
+DATABASE_URL = "mysql+mysqldb://root:password@localhost:3306/bläää"
+
+### Debugging Session Output`
+
+#### Observations
+- **Initial Value**: `DATABASE = "burger"`
+  - The database was created successfully with the name "burger".
+  - `DATABASE_URL` was set to `mysql+mysqldb://root:password@localhost:3306/burger`.
+
+- **Modified Value**: `DATABASE = "bläää"`
+  - The database was created successfully with the name "bläää".
+  - `DATABASE_URL` was set to `mysql+mysqldb://root:password@localhost:3306/bläää`.
+
+#### Summary and Reflection
+- **What went well?**: watched variables, and stepped through the code.
+- **What was challenging?**: Running through all brekpoints, understanding the flow of the program and the impact of each line.
+- **Usefulness of Debugging**: Debugging is a powerful tool for identifying and fixing issues in the code. It helps in understanding the program flow and the state of variables at different points in execution.
+
+### Conclusion
+Debugging proved to be an invaluable tool for understanding and verifying the functionality of the `create_database_if_not_exists` function. By modifying the `DATABASE` variable and observing the changes, I gained insights into how different database names affect the execution of the code. This exercise has enhanced my confidence in using debugging as a tool for future projects.
+

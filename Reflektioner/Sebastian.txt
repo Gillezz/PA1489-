@@ -1,0 +1,140 @@
+Viktiga git commands
+1. git init - skapar ett tomt repository
+2. git remote add origin <URL> kopplar ditt lokala repo med github repot 
+3. git add -  registrerar vilka filer och ändringar du vill inkludera i nästa commit
+4. git commit - är ett tillstånd ungefär som en safe file i ett spel där du kan gå tillbaka ifall någon har gått fel
+5. git push - pushar ditt tillstånd till servern 
+6. git branch <name_of_branch> skapar en ny branch
+7. git switch/checkout <branch_name> byter till den specifika branchen
+8. git merge <branch_name> - lägger ihop den branchen du står i med <branch_name>
+
+Dag 1
+Jag har tidigare erfarenhet av programmering och kunde därför hjälpa mina gruppmedlemmar att komma igång
+med Git och GitHub. Först gick vi igenom hur de laddar ner och installerar Git Bash 
+så att de skulle ha alla verktyg de behöver för versionshantering. Därefter introducerade jag dem för
+de mest grundläggande Git-kommandona, som git add, git commit, git push och git pull. 
+Jag visade också hur man skapar och byter brancher med git branch och git checkout, 
+Genom att lära sig dessa grundläggande kommandon fick gruppen snabbt en bättre förståelse
+för hur vi kan arbeta tillsammans mer effektivt och undvika konflikter i koden.
+
+Dag 2 
+Jag läste från boken The Pragmatic Programmer kapitel WHILE YOU ARE CODING. Fick lära mig en del om
+refactor och hur man kan tänka kring funktioner och nedbrytning av kod
+
+DAG 3 
+forsatte lästa från boken The Pragmatic Programmer kapitel WHILE YOU ARE CODING mer fokus denna gång på hur
+man skriver renare kod och kod som är lättare att testa
+
+DAG 4
+läste debugging delen från boken The Pragmatic Programmer kapitel THE BASIC TOOLS,
+berättar hur man debuggar och hur man använder debugging på ett effektivt sätt
+
+DAG 5
+Diskution med gruppen om vilka hamburgare vi ska ha, vi kom fram till att personen som gör den delen kan
+bestämma, vi ansåg att det inte har en stor betydelse vilka sorts hamburgare som skulle användas.
+
+DAG 6 
+Diskution med gruppen hur vi ska strukturera upp arbetet. Bryta ner uppgiten i mindre uppgifter för att 
+sedan kunna dela upp arbetet. 
+
+DAG 7
+Diskution med grupp forsatte och vi kom fram till att arbetet består av 3 olika delar 2 front-end delar 
+och en databas del. Jag fick känslan att gruppmedlemmarna kände sig oroliga över hur vi skulle utföra uppgfiten
+då deras kompitens är betydligt mindre än min egna.
+
+DAG 8
+Diskution om vilka programmeringsspråk vi ska använda samt om vi ska använda något ramverk. Vi kom fram till html,css,python och ramverket Flask
+
+DAG 9 
+Läst kort från flask dokumentationen för att förstå hur det ska implementeras / användas 
+
+DAG 10
+Genomgång med gruppen, vilka moduler behöver skapas, vi kom fram till en databas modul, kitchen modul, order modul och två html sidor.
+Jag tog på mig att skapa databas modulen och all logik runt omkring den, det vill säga hamburgar sorter och ingredienserna som ska finnas 
+i databasen. 
+
+DAG 11
+Problem hos andra gruppmedlemmar behöver hjälp med hur dom ska gå tillväga för att lösa uppgiften. Får känslan av att jag drar i det
+mesta i projektet, dock är det förståligt, jag får känslan av att gruppmedlemmarna är konstant stressade och oroliga över hur vi ska
+klara uppgiften, även pratat med andra grupper och oroheten över att klara kursen är stor, Försöker putta vissa grupper i rätt
+riktning så att de klarar kursen. 
+
+DAG 12
+Databas fil klar och redo för att pushas till repository, inga svårigheter att implementera till lokal databas, gissar på att det
+kommer bli problem när den ska köras med docker
+
+DAG 13
+Var tvungen att hoppa in och hjälpa gruppmedlemmar med deras kod.
+
+DAG 14
+Allting fungera lokalt nu ska bara docker implementeras, ingenting jag har använt innan bara hört talas om.
+
+DAG 15
+Läser på om docker, docker-compose, docker-images och docker-containers. Förstår ungefär hur det används men ej hur jag ska implemetera det 
+
+DAG 16
+Fortsätter att läsa om docker skapar några egna små projekt och leker runt med docker. Docker är ett intressant koncept som jag tror
+jag kommer ha nytta av i framtiden
+
+DAG 17
+Anser att koden som vi har skapat inte är tillräkligt bra och gör om hela kod basen på en dag. Läst en stor del från flask dokumentation
+och stackoverflow hur man effektivt kan implementera databas och html filer. 
+
+DAG 18
+efter lite strul får jag docker-compose till att fungera med projektet.
+
+
+Debug-session
+
+import MySQLdb
+
+HOST = "db"
+USER = "root"
+PASSWORD = "password"
+DATABASE = "burger"
+PORT = 3306
+
+
+def create_database_if_not_exists():
+    """
+    Create the MYSQL database if it doesn't exist.
+    """
+    connection = MySQLdb.connect(
+        host=HOST,
+        user=USER,
+        passwd=PASSWORD,
+        port=PORT
+    )
+    cursor = connection.cursor()
+    cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+    cursor.close()
+    connection.close()
+
+DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+
+class Config:
+    SECRET_KEY = "very_very_secret_key"
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+Koden fungerar som konfiguration för en Flask-applikation och hanterar inställningarna
+för en MySQL-databasanslutning. Först importeras MySQLdb för att interagera med databasen,
+och HOST, USER, PASSWORD, DATABASE, och PORT variablerna specificeras för att kunna ansluta till databasen. 
+create_database_if_not_exists, skapar en databas om den inte redan finns. Funktionen
+ansluter till MySQL-servern med de angivna detaljerna, skapar en cursor för att köra SQL-kommandot
+och utför ett kommando för att skapa databasen om den inte finns. Cursorn och anslutningen stängs 
+sedan för att spara resurser. DATABASE_URL sätts upp som en URI (Uniform Resource Identifier) För
+SQLAlchemy med hjälp av databasuppgifterna, vilket underlättar anslutningen till databasen för Flask.
+Sedan definieras en konfigurationsklass, Config, för Flask-applikationen. Denna klass innehåller
+inställningar som SECRET_KEY Detta är en viktig säkerhetsinställning i Flask som används
+för att skydda sessionsdata, cookies och motverka attacker.
+Nyckeln krypterar och verifierar data mellan klient och server, så den ska vara unik och hemlig.
+SQLALCHEMY_DATABASE_URI: Detta URI används av SQLAlchemy för att ansluta till databasen.
+Det specificerar databasens användarnamn, lösenord, värd, port och namn, 
+vilket krävs för att köra SQL-frågor och hantera data.
+SQLALCHEMY_TRACK_MODIFICATIONS: Denna inställning avgör om SQLAlchemy
+ska spåra ändringar i objekt, vilket annars kan påverka minnesanvändningen.
+Om den sätts till False sparar applikationen resurser genom att undvika onödiga
+spårningshändelser.
+

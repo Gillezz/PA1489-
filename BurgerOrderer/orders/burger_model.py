@@ -1,5 +1,8 @@
-# models.py
-
+"""
+The code defines an Orders model for a Flask application using SQLAlchemy. It
+represents burger orders with various ingredient options and includes methods for converting
+order data to a dictionary and for generating a string representation of an order.
+"""
 from flask_sqlalchemy import SQLAlchemy 
 db = SQLAlchemy()
 

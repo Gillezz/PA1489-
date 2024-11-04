@@ -1,10 +1,28 @@
-# Yasir reflections diary
+Yasir's Reflections Diary
+Group members: Yasir, Habib, Sebastian, Samuel.
 
 We have decided to use HTML and Python for this course. In the beginning, it was quite hard to start the work because we didn't know what to do and how to start the project. After some meetings with the whole group, we decided to divide the work among us, and each person had the responsibility for something. Each one of us took their part very seriously, even though it was very hard for us at the beginning. Each day, we began to see some results, and that made us even more confident in the work we were doing. All of us tried very hard and did our best to learn and to be part of the project in different ways.
 
 I started by watching different videos about how to start a project using Git and GitHub. I also read a lot of articles and PowerPoints from each lecture that the teacher posted on Canvas. I did all that in the beginning just to get to know a bit about how everything was going to be and to gather some information about how projects were made. I will be fully honest: what I watched in the beginning on YouTube and how the project was when we started were quite different in many ways and aspects.
 
+In our group meetings, we initially focused on discussing how to structure the project and how we were going to stay on track. We also clarified the tasks each person needed to complete. Three out of the four group members had never programmed before, so this was a significant challenge for us. Using Java wasn’t an option because we didn’t have enough experience with it. Instead, we chose to work with HTML and Python, which I believe was the right decision. This choice was influenced by the fact that we had previously worked with Python in another course, making it a bit easier to understand. Overall, we were satisfied with the effort we put in and the results we achieved. Starting from scratch and completing all of this was no small task for those of us who had never programmed before.
 
+At the beginning, we all created GitHub accounts and joined the server. We also learned some essential commands that we used frequently throughout the course. These included how to use Git Bash, GitHub, create a repository, add files to it, pull and push files from a repository, commit changes to a file, create empty files, and clone repositories. We learned more about "databaser," Burgerorder using HTML, menu, and kitchenview. This was the hardest part of the project, but step by step we maneged to succied and learned much more then we thought we would. We also made debugging to see our problems, and from there it was easier to solve them because we knew exactly what the problems were and we could find easier the solution for it.
 
+Now, I will explain the different commands and their functions. Git commands:
+
+git pull - Fetch git from a repository
+git push - Upload a file to GitHub
+git commit - Updating a file (changes, removing, and adding code counts as a commit)
+git add * - Add a file
+git touch - Create an empty file
+
+The project was divided into different parts such as Database, Burgerorder, index, menu, and a kitchen view. Three out of four members didn’t have a single clue about these things before we started, but after working with the project for almost 1.5 months, I can say that all of us now know much more, and we have gained so much confidence in building an easy "menu website." I tried to learn all the parts, but some were very hard to understand. The hardest to grasp was databaser, how to connect the host, user, password, and port. Now, after working with it for a while, it feels better, and I have some insight into how the "databaser" works.
+
+The Burgerorders were the easiest because we did that in HTML, and it was quite interesting and fun to work with it. We had three burgers and tried out different things, adding buttons on the website for each burger was quite fun. As we worked on it and saw the progress, how we could build everything step by step, it became much clearer and easier to understand.
+
+I also made a container on Docker and tried to connect to the "databaser." It took some time because it was hard to understand exactly what to do, but after many attempts and never giving up, I managed to solve it. Then it became much more interesting because in the Docker container, I was able to debug our project, and we could also see the problems that we had. I connected the "databaser," and when I started the program and began debugging, I had problems because when I connected to the container, I had to change the host name to "db." When I tried to run it from Docker Desktop, an error came up, and I had to change the host again to the old name. I also had problems with the password, so I removed the password we had by typing: docker run --name mysql-container -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 3308:3306 -d mysql:latest
+
+After that, I didn’t have any problems with the password, but new problems always came up, and I tried my best to solve everything because with every problem I had, I became curious and wanted to learn how to fix it. In the end, I have to say that this was a very interesting course in general, but it was very hard in the beginning. I think that if we had the course maybe six months after we started school, it would have been easier to understand because coming from zero programming and seeing all this was a shock for me. Still, I feel that this course gave me so much knowledge that I am sure will help me even more with future courses and projects. I want to thank you for all the help you gave us and also for an interesting course! 
 
 
