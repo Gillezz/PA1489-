@@ -50,36 +50,62 @@ docker-compose up
 Day 12: Testing and Debugging
 I decided to create a container specifically for the kitchen view, but I faced many difficulties throughout the process. I attempted to solve these challenges. When I created a container for the kitchen view and began analyzing and debugging it, I encountered over 121 vulnerabilities and more than 594 packages, which I had no idea how to resolve or even what was causing these issues.
 
-Day 13: Debugging Documentation for display_orders Function
-I conducted a debugging session for the display_orders function in my Flask application using Visual Studio Code. Here’s a summary of the process:
+Day 13: Debugging Documentation 
 
-Functionality Tested:
-I focused on the display_orders function, which retrieves all orders from the database and filters them for display.
+Certainly! Here’s the debugging session documented in English as per your request:
 
+Debugging Session for Database "burger"
+Configuration:
+Variables:
+
+HOST = "localhost"
+USER = "root"
+PASSWORD = "password"
+PORT = 3308 (Changed the port to 3308 to test the connection)
+DATABASE = "burger" (Specified the database name)
 Breakpoints:
-I set breakpoints after the line where orders are fetched (orders = Orders.query.all()) and right before the return statement. This allowed me to inspect the state of the application at critical points.
 
-Debugger Controls:
-I utilized the debugger controls:
+Line 14: connection = MySQLdb.connect(host=HOST, user=USER, passwd=PASSWORD, port=PORT)
+Line 18: cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+Line 22: DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+Step-by-Step Execution with Code and Observations
+Breakpoint at Line 14: Attempting to establish a database connection
 
-Continue: To run the code until the next breakpoint.
-Step Over: To execute the current line without diving into function calls.
-Step Into: To go into the function being called if necessary.
-Step Out: To exit the current function and return to the calling function.
-Watched Variables:
-I monitored the following variables:
+python
+Kopiera kod
+connection = MySQLdb.connect(host=HOST, user=USER, passwd=PASSWORD, port=PORT)
+Variables at this point:
+PORT = 3308 (Notice that the port is set to 3308 instead of the default 3306)
+DATABASE = "burger"
+Result: The connection failed.
+Analysis: Using port 3308 caused a connection failure, suggesting that the MySQL server is not listening on this port on localhost. The default port, 3306, is needed if no other port configuration has been set.
+Breakpoint at Line 18: This line was not executed because the connection could not be established on port 3308.
 
-orders: To check if the correct orders are fetched from the database.
-filtered_orders_list: To see the results after filtering out unwanted keys.
-result: To verify the final output string being constructed.
-Tested Paths:
-I tested different scenarios, such as:
+python
+Kopiera kod
+cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+Variables:
+No new data available since the connection was never established.
+Result: No execution.
+Analysis: Because the connection failed at Line 14, this line was never reached, so the database could not be created.
+Breakpoint at Line 22: This line was also not executed due to the connection error at Line 14.
 
-Fetching orders with various attributes.
-Modifying orders and checking how it impacts the output.
-Ensuring that filtering correctly removes keys like id and burgerName.
-Summary:
-The debugging session clarified the data flow in the display_orders function and confirmed that the filtering logic worked as intended. Overall, debugging proved to be an invaluable tool for understanding the behavior of the code and ensuring the functionality met the project requirements.
+python
+Kopiera kod
+DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+Variables:
+No new data available since the connection was not established.
+Result: No execution.
+Analysis: The DATABASE_URL setup was never completed due to the failed connection.
+Summary and Insights
+Port and Database Configuration:
+
+The attempt to connect to the MySQL server on localhost via port 3308 failed, indicating that the server is only listening on the default port 3306. For future connections, port 3306 should be used unless the server is configured for a different port.
+Use of Breakpoints:
+
+The breakpoints helped to pinpoint exactly where in the process the error occurred. By reviewing the values of variables at Line 14, we identified that the connection issue was caused by an incorrect port setting.
+Conclusion
+This debugging session highlighted the importance of correct port configuration for establishing a successful database connection. We recommend using port 3306 unless MySQL is configured to listen on an alternate port.
 
 Day 14: Tools Used for the Project
 We have used several tools to complete our project, including Git, GitHub, Visual Studio Code, a database, Docker Desktop, pip, and Flask.
