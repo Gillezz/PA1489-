@@ -52,12 +52,6 @@ I decided to create a container specifically for the kitchen view, but I faced m
 
 Day 13: Debugging Documentation 
 
-Certainly! Here’s the debugging session documented in English as per your request:
-
-Debugging Session for Database "burger"
-Configuration:
-Variables:
-
 HOST = "localhost"
 USER = "root"
 PASSWORD = "password"
@@ -68,35 +62,6 @@ Breakpoints:
 Line 14: connection = MySQLdb.connect(host=HOST, user=USER, passwd=PASSWORD, port=PORT)
 Line 18: cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
 Line 22: DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
-Step-by-Step Execution with Code and Observations
-Breakpoint at Line 14: Attempting to establish a database connection
-
-python
-Kopiera kod
-connection = MySQLdb.connect(host=HOST, user=USER, passwd=PASSWORD, port=PORT)
-Variables at this point:
-PORT = 3308 (Notice that the port is set to 3308 instead of the default 3306)
-DATABASE = "burger"
-Result: The connection failed.
-Analysis: Using port 3308 caused a connection failure, suggesting that the MySQL server is not listening on this port on localhost. The default port, 3306, is needed if no other port configuration has been set.
-Breakpoint at Line 18: This line was not executed because the connection could not be established on port 3308.
-
-python
-Kopiera kod
-cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
-Variables:
-No new data available since the connection was never established.
-Result: No execution.
-Analysis: Because the connection failed at Line 14, this line was never reached, so the database could not be created.
-Breakpoint at Line 22: This line was also not executed due to the connection error at Line 14.
-
-python
-Kopiera kod
-DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
-Variables:
-No new data available since the connection was not established.
-Result: No execution.
-Analysis: The DATABASE_URL setup was never completed due to the failed connection.
 Summary and Insights
 Port and Database Configuration:
 

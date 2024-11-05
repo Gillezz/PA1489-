@@ -1,0 +1,20 @@
+### my debug session
+HOST = "localhost"
+USER = "root"
+PASSWORD = "password"
+PORT = 3308 (Changed the port to 3308 to test the connection)
+DATABASE = "burger" (Specified the database name)
+Breakpoints:
+
+Line 14: connection = MySQLdb.connect(host=HOST, user=USER, passwd=PASSWORD, port=PORT)
+Line 18: cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DATABASE}")
+Line 22: DATABASE_URL = f"mysql+mysqldb://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+Summary and Insights
+Port and Database Configuration:
+
+The attempt to connect to the MySQL server on localhost via port 3308 failed, indicating that the server is only listening on the default port 3306. For future connections, port 3306 should be used unless the server is configured for a different port.
+Use of Breakpoints:
+
+The breakpoints helped to pinpoint exactly where in the process the error occurred. By reviewing the values of variables at Line 14, we identified that the connection issue was caused by an incorrect port setting.
+Conclusion
+This debugging session highlighted the importance of correct port configuration for establishing a successful database connection. We recommend using port 3306 unless MySQL is configured to listen on an alternate port.
