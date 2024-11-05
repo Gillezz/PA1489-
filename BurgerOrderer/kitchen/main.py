@@ -6,7 +6,8 @@ and defines a route to display filtered orders from the database.
 from flask import Flask, render_template
 from config import Config
 from burger_model import db, Orders
-
+import unittest
+from test import TestCreateDatabaseIfNotExists
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -24,4 +25,6 @@ def display_orders():
     return render_template('index.html', orders=filtered_orders_list)
 
 if __name__ == "__main__":
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestCreateDatabaseIfNotExists)
+    unittest.TextTestRunner().run(suite)
     app.run(host="0.0.0.0", port=5001, debug=True)
